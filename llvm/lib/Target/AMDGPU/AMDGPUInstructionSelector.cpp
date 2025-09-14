@@ -1475,9 +1475,6 @@ bool AMDGPUInstructionSelector::selectG_ICMP_or_FCMP(MachineInstr &I) const {
     return Ret;
   }
 
-  if (I.getOpcode() == AMDGPU::G_FCMP)
-    return false;
-
   int Opcode = getV_CMPOpcode(Pred, Size, *Subtarget);
   if (Opcode == -1)
     return false;
